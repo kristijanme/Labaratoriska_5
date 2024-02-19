@@ -8,11 +8,11 @@ import 'Ispit.dart';
 class NotificationService {
   int idCount = 0;
   bool locationNotificationActive = false;
-  Location location = Location("University", 42.004186212873655, 21.409531941596985);
+  Location location = Location("Универзитет", 42.004186212873655, 21.409531941596985);
   DateTime? lastNotificationTime;
 
   NotificationService() {
-    Timer.periodic(const Duration(seconds: 5), (timer) {
+    Timer.periodic(const Duration(seconds: 10), (timer) {
       if (locationNotificationActive) {
         checkLocationAndNotify();
       }
@@ -33,7 +33,7 @@ class NotificationService {
         id: notificationId,
         channelKey: "basic_channel",
         title: exam.course,
-        body: "You have an exam tomorrow!",
+        body: "Има закажано испит утре!!!",
       ),
       schedule: NotificationCalendar(
         day: exam.timestamp.subtract(const Duration(days: 1)).day,

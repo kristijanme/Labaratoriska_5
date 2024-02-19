@@ -22,7 +22,7 @@ class _MapWidgetState extends State<MapWidget> {
             Navigator.of(context).pop();
           },
         ),
-        title: const Text('Map'),
+        title: const Text('Мапа'),
       ),
       body: FlutterMap(
         options: const MapOptions(
@@ -32,7 +32,7 @@ class _MapWidgetState extends State<MapWidget> {
         children: [
           TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'mk.ukim.finki.mis',
+            userAgentPackageName: 'com.example.labaratoriska5_mis',
           ),
           MarkerLayer(
             markers: [
@@ -41,11 +41,11 @@ class _MapWidgetState extends State<MapWidget> {
                   university.latitude,
                   university.longitude,
                 ),
-                width: 100,
-                height: 100,
+                width: 120,
+                height: 120,
                 child: GestureDetector(
                   onTap: () {
-                    // Show the alert dialog here
+
                     _showAlertDialog();
                   },
                   child: const Icon(Icons.pin_drop),
@@ -66,20 +66,19 @@ class _MapWidgetState extends State<MapWidget> {
     );
   }
 
-  // Function to show the alert dialog
   Future<void> _showAlertDialog() async {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Open Google Maps?'),
-          content: const Text('Do you want to open Google Maps for routing?'),
+          title: const Text('Отвори "google maps"?'),
+          content: const Text('Дали ви е потребна апликацијата за пронаоѓање на рутата?'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancel'),
+              child: const Text('Откажи'),
             ),
             TextButton(
               onPressed: () {
@@ -89,7 +88,7 @@ class _MapWidgetState extends State<MapWidget> {
                         .longitude);
                 Navigator.of(context).pop();
               },
-              child: const Text('Open'),
+              child: const Text('Отвори'),
             ),
           ],
         );

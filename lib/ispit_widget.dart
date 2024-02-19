@@ -19,8 +19,8 @@ class ExamWidgetState extends State<ExamWidget> {
     final DateTime? datePicked = await showDatePicker(
       context: context,
       initialDate: selectedDate,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
+      firstDate: DateTime(2005),
+      lastDate: DateTime(2200),
     );
 
     if (datePicked != null && datePicked != selectedDate) {
@@ -54,22 +54,22 @@ class ExamWidgetState extends State<ExamWidget> {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               controller: courseController,
-              decoration: const InputDecoration(labelText: 'Subject'),
+              decoration: const InputDecoration(labelText: 'Предмет'),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 14),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                     'Date: ${selectedDate.toLocal().toString().split(' ')[0]}'),
                 ElevatedButton(
-                  child: const Text('Select Date'),
+                  child: const Text('Одбери датум:'),
                   onPressed: () => _selectDate(context),
                 ),
               ],
@@ -79,14 +79,14 @@ class ExamWidgetState extends State<ExamWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                    'Time: ${selectedDate.toLocal().toString().split(' ')[1].substring(0, 5)}'),
+                    'Време: ${selectedDate.toLocal().toString().split(' ')[1].substring(0, 5)}'),
                 ElevatedButton(
                   onPressed: () => _selectTime(context),
-                  child: const Text('Select Time'),
+                  child: const Text('Одбери време'),
                 ),
               ],
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
                 Exam exam = Exam(
@@ -96,7 +96,7 @@ class ExamWidgetState extends State<ExamWidget> {
                 widget.addExam(exam);
                 Navigator.pop(context);
               },
-              child: const Text('Add Exam'),
+              child: const Text('Додади испит'),
             ),
           ],
         ),

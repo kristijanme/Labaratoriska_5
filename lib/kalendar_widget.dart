@@ -11,7 +11,7 @@ class CalendarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Exams'),
+        title: const Text('Испити'),
       ),
       body: SfCalendar(
         view: CalendarView.month,
@@ -31,7 +31,7 @@ class CalendarWidget extends StatelessWidget {
     for (var exam in exams) {
       appointments.add(Appointment(
         startTime: exam.timestamp,
-        endTime: exam.timestamp.add(const Duration(hours: 2)),
+        endTime: exam.timestamp.add(const Duration(hours: 1)),
         subject: exam.course,
       ));
     }
@@ -58,7 +58,7 @@ class CalendarWidget extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Exams on ${selectedDate.toLocal()}'),
+          title: Text('Испити на ${selectedDate.toLocal()}'),
           content: Column(
             children: exams
                 .map((exam) => Text(
@@ -70,7 +70,7 @@ class CalendarWidget extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Close'),
+              child: const Text('Затвори'),
             ),
           ],
         );
@@ -81,6 +81,6 @@ class CalendarWidget extends StatelessWidget {
 
 class _DataSource extends CalendarDataSource {
   _DataSource(List<Appointment> source) {
-    appointments = source;
+     appointments= source;
   }
 }

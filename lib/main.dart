@@ -60,8 +60,8 @@ class MainListScreen extends StatefulWidget {
 class MainListScreenState extends State<MainListScreen> {
   final List<Exam> exams = [
     Exam(course: 'MIS', timestamp: DateTime.now()),
-    Exam(course: 'MPiP', timestamp: DateTime(2023, 12, 31)),
-    Exam(course: 'VBS', timestamp: DateTime(2023, 12, 22))
+    Exam(course: 'VIS', timestamp: DateTime(2024, 02, 10)),
+    Exam(course: 'PNVI', timestamp: DateTime(2024, 01, 27))
   ];
 
   bool _isLocationBasedNotificationsEnabled = false;

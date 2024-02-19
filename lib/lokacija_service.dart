@@ -6,15 +6,15 @@ class LocationService {
     LocationPermission permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.denied) {
       if (kDebugMode) {
-        print("Location permission denied");
+        print("Пристапот за локацијата е одбиен");
       }
     } else if (permission == LocationPermission.deniedForever) {
       if (kDebugMode) {
-        print("Location permission denied forever");
+        print("Пристапот за локацијата е засекогаш одбиен");
       }
     } else {
       if (kDebugMode) {
-        print("Location permission granted");
+        print("Пристапот за локацијата е одобрен");
       }
     }
   }
